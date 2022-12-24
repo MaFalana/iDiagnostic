@@ -24,12 +24,12 @@ class DeviceManager: ObservableObject
     let modelIdentifier = DeviceInfoHelper.getModelIdentifier()
     //let partNumber = DeviceInfoHelper.getPartNumber()
     let modelNumber = DeviceInfoHelper.getModelNumber()
-    //let releaseYear = DeviceInfoHelper.getReleaseYear()
+    let releaseYear = DeviceInfoHelper.getReleaseYear()
     let macOSVersion = DeviceInfoHelper.getMacOSVersion()
     let displaySize = DeviceInfoHelper.getDisplaySize()
     let ramCapacity = DeviceInfoHelper.getRAMCapacity()
     let processor = DeviceInfoHelper.getProcessor()
-    //let hddCapacity = DeviceInfoHelper.getHDDCapacity()
+    let storageCapacity = DeviceInfoHelper.getHDDCapacity()
     //let color = DeviceInfoHelper.getColor()
     //let modelDimensions = DeviceInfoHelper.getModelDimensions()
     //let modelAverageWeight = DeviceInfoHelper.getModelAverageWeight()
@@ -100,6 +100,7 @@ struct DeviceInfoHelper
     {
         let command = "system_profiler SPHardwareDataType | grep \"Release Year\""
         let output = executeCommand(command: command)
+        if output.count < 2 { return ""}
         let releaseYear = output.components(separatedBy: ": ")[1]  // Parse output to retrieve release year
         return releaseYear
     }
@@ -138,8 +139,13 @@ struct DeviceInfoHelper
     {
         let command = "diskutil info / | grep \"Total Size\""
         let output = executeCommand(command: command)
-        let hddCapacity = output.components(separatedBy: ": ")[1] // Parse output to retrieve HDD capacity
-        return hddCapacity
+        let capacityComponents = output.components(separatedBy: ": ")
+            if capacityComponents.count >= 2 {
+                let hddCapacity = capacityComponents[1]
+                return hddCapacity
+            } else {
+                return "Error: Unable to retrieve storage capacity."
+            }
     }
 
     static func getColor() -> String // Code to retrieve and return color

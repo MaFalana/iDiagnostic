@@ -48,23 +48,23 @@ struct ContentView: View
                     Text(DM.modelIdentifier).font(.body)
                 }
                 
-                HStack
-                {
-                    Text("Part Number:").font(.headline)
-                    Text("N/A").font(.body)
-                }
+//                HStack
+//                {
+//                    Text("Part Number:").font(.headline)
+//                    Text("N/A").font(.body)
+//                }
+//
+//                HStack
+//                {
+//                    Text("Model Number:").font(.headline)
+//                    Text("N/A").font(.body)
+//                }
                 
-                HStack
-                {
-                    Text("Model Number:").font(.headline)
-                    Text("N/A").font(.body)
-                }
-                
-                HStack
-                {
-                    Text("Release Year:").font(.headline)
-                    Text("N/A").font(.body)
-                }
+//                HStack
+//                {
+//                    Text("Release Year:").font(.headline)
+//                    Text(DM.releaseYear).font(.body)
+//                }
                 
                 HStack
                 {
@@ -99,27 +99,27 @@ struct ContentView: View
     
                 HStack
                 {
-                    Text("HDD Capacity:").font(.headline)
-                    Text("N/A").font(.body)
+                    Text("Storage Capacity:").font(.headline)
+                    Text(DM.storageCapacity).font(.body)
                 }
-    
-                HStack
-                {
-                    Text("Color:").font(.headline)
-                    Text("N/A").font(.body)
-                }
-    
-                HStack
-                {
-                    Text("Model Dimensions:").font(.headline)
-                    Text("N/A").font(.body)
-                }
-    
-                HStack
-                {
-                    Text("Model Average Weight:").font(.headline)
-                    Text("N/A").font(.body)
-                }
+//
+//                HStack
+//                {
+//                    Text("Color:").font(.headline)
+//                    Text("N/A").font(.body)
+//                }
+//
+//                HStack
+//                {
+//                    Text("Model Dimensions:").font(.headline)
+//                    Text("N/A").font(.body)
+//                }
+//
+//                HStack
+//                {
+//                    Text("Model Average Weight:").font(.headline)
+//                    Text("N/A").font(.body)
+//                }
     
                 HStack
                 {
